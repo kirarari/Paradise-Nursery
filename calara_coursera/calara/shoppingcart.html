@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Nursery - Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        .checkout-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+        .checkout-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Shopping Cart</h1>
+    <div id="cart-items"></div>
+    <p>Total: $<span id="total">0</span></p>
+    <a href="paymenttab.html" class="checkout-btn">Proceed to Payment</a>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let total = 0;
+        const cartContainer = document.getElementById('cart-items');
+        const totalElement = document.getElementById('total');
+
+        cart.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'cart-item';
+            itemDiv.innerHTML = `<p>${item.name} - $${item.price}</p>`;
+            cartContainer.appendChild(itemDiv);
+            total += item.price;
+        });
+
+        totalElement.textContent = total;
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Nursery - Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .category {
+            margin-bottom: 40px;
+        }
+        .category h2 {
+            color: #4CAF50;
+        }
+        .plant {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+            width: 200px;
+        }
+        .plant img {
+            width: 150px;
+            height: 150px;
+        }
+        .add-to-cart-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+        .cart-link {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="shoppingcart.html" class="cart-link">View Cart</a>
+    <h1>Our Houseplants</h1>
+
+    <div class="category">
+        <h2>Low Light Plants</h2>
+        <div class="plant">
+            <img src="snakeplant.jpg" alt="Snake Plant">
+            <h3>Snake Plant</h3>
+            <p>$25</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Snake Plant', 25)">Add to Cart</button>
+        </div>
+        <div class="plant">
+            <img src="zz plant.jpg" alt="ZZ Plant">
+            <h3>ZZ Plant</h3>
+            <p>$30</p>
+            <button class="add-to-cart-btn" onclick="addToCart('ZZ Plant', 30)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Flowering Plants</h2>
+        <div class="plant">
+            <img src="peace_lily.jpg" alt="Peace Lily">
+            <h3>Peace Lily</h3>
+            <p>$35</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Peace Lily', 35)">Add to Cart</button>
+        </div>
+        <div class="plant">
+            <img src="african_violet.jpg" alt="African Violet">
+            <h3>African Violet</h3>
+            <p>$20</p>
+            <button class="add-to-cart-btn" onclick="addToCart('African Violet', 20)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Succulents</h2>
+        <div class="plant">
+            <img src="jade_plant.jpg" alt="Jade Plant">
+            <h3>Jade Plant</h3>
+            <p>$15</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Jade Plant', 15)">Add to Cart</button>
+        </div>
+        <div class="plant">
+            <img src="aloe_vera.jpg" alt="Aloe Vera">
+            <h3>Aloe Vera</h3>
+            <p>$18</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Aloe Vera', 18)">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + ' added to cart!');
+        }
+    </script>
+</body>
+</html>
